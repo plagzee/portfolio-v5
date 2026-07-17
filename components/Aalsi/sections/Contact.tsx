@@ -4,22 +4,38 @@ import { useState } from "react";
 import {
   Mail,
   Phone,
-  QrCode,
   Check,
   ChevronDown,
 } from "lucide-react";
 
 import {
-  GlowButton,
   Reveal,
   SectionHeading,
 } from "../ui";
+
+const phoneNumbers = [
+  {
+    label: "Sales",
+    display: "+91 86380 60300",
+    tel: "+918638060300",
+  },
+  {
+    label: "Support",
+    display: "+91 69005 10916",
+    tel: "+916900510916",
+  },
+  {
+    label: "Projects",
+    display: "+91 80116 30619",
+    tel: "+918011630619",
+  },
+];
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
   const [openPhones, setOpenPhones] = useState(false);
 
-  const copyEmail = async () => {
+  async function copyEmail() {
     await navigator.clipboard.writeText("aalsiworks@gmail.com");
 
     setCopied(true);
@@ -27,12 +43,12 @@ export default function Contact() {
     setTimeout(() => {
       setCopied(false);
     }, 2000);
-  };
+  }
 
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-transparent py-40"
+      className="relative overflow-visible bg-transparent py-40"
     >
       {/* Background Glow */}
 
@@ -101,13 +117,13 @@ export default function Contact() {
               )}
             </button>
 
-            {/* Phone */}
+            {/* Call */}
 
             <div className="relative">
 
               <button
                 onClick={() =>
-                  setOpenPhones(!openPhones)
+                  setOpenPhones((prev) => !prev)
                 }
                 className="
                   flex
@@ -116,118 +132,82 @@ export default function Contact() {
                   rounded-full
                   border
                   border-white/10
+                  bg-white/[0.03]
                   px-8
                   py-5
                   font-semibold
+                  backdrop-blur-md
                   transition-all
                   duration-300
-                  hover:border-white/20
+                  hover:border-[#3557FF]/40
                   hover:bg-white/5
                 "
               >
                 <Phone size={18} />
+
                 Call Us
 
                 <ChevronDown
                   size={18}
-                  className={`transition-transform ${
-                    openPhones
-                      ? "rotate-180"
-                      : ""
+                  className={`transition-transform duration-300 ${
+                    openPhones ? "rotate-180" : ""
                   }`}
                 />
               </button>
 
               {openPhones && (
-
                 <div
                   className="
                     absolute
                     left-1/2
                     top-full
-                    z-20
+                    z-50
                     mt-4
-                    w-64
+                    w-72
                     -translate-x-1/2
+                    overflow-hidden
                     rounded-2xl
                     border
                     border-white/10
-                    bg-[#111111]
-                    p-3
-                    shadow-2xl
+                    bg-[#111111]/90
+                    backdrop-blur-xl
+                    shadow-[0_20px_60px_rgba(0,0,0,.45)]
                   "
                 >
+                  {phoneNumbers.map((phone) => (
+                    <a
+                      key={phone.tel}
+                      href={`tel:${phone.tel}`}
+                      className="
+                        flex
+                        items-center
+                        justify-between
+                        px-5
+                        py-4
+                        transition-colors
+                        hover:bg-white/5
+                      "
+                    >
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">
+                          {phone.label}
+                        </p>
 
-                  <a
-                    href="tel:+918638060300"
-                    className="
-                      block
-                      rounded-xl
-                      px-4
-                      py-3
-                      transition-colors
-                      hover:bg-white/5
-                    "
-                  >
-                    +91 86380 60300
-                  </a>
+                        <p className="mt-1 font-medium text-white">
+                          {phone.display}
+                        </p>
+                      </div>
 
-                  <a
-                    href="tel:+919435033248"
-                    className="
-                      mt-2
-                      block
-                      rounded-xl
-                      px-4
-                      py-3
-                      transition-colors
-                      hover:bg-white/5
-                    "
-                  >
-                    +91 69005 10916
-                  </a>
-                  <a
-                    href="tel:+918011630619"
-                    className="
-                      mt-2
-                      block
-                      rounded-xl
-                      px-4
-                      py-3
-                      transition-colors
-                      hover:bg-white/5
-                    "
-                  >
-                    +91 80116 30619
-                  </a>
-
+                      <Phone
+                        size={18}
+                        className="text-zinc-500"
+                      />
+                    </a>
+                  ))}
                 </div>
-
               )}
 
             </div>
-
-            {/* UPI */}
-
-            {/* <button
-              disabled
-              className="
-                flex
-                cursor-not-allowed
-                items-center
-                gap-3
-                rounded-full
-                border
-                border-white/10
-                px-8
-                py-5
-                font-semibold
-                opacity-60
-              "
-            >
-              <QrCode size={18} />
-              Pay via UPI
-            </button> */}
 
           </div>
 
@@ -237,4 +217,3 @@ export default function Contact() {
     </section>
   );
 }
-// aalsiworks@gmail.com
