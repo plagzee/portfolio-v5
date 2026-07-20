@@ -1,15 +1,18 @@
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
-import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
+import * as THREE from "three";
+
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import type { GLTF } from "three/examples/jsm/loaders/GLTFLoader.js";
+
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
+import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
 
 class ThreeManager {
   private scene: THREE.Scene;
   private camera: THREE.PerspectiveCamera;
   private renderer: THREE.WebGLRenderer;
   private canvas: HTMLCanvasElement;
-  private width: number;
-  private height: number;
+  private width = 0;
+  private height = 0;
   private loader: GLTFLoader;
   private rgbeLoader: RGBELoader;
   private dracoLoader: DRACOLoader;
