@@ -15,8 +15,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Digital Crew - Ahiran Ajoy Sahu",
-  description: "A personal portfolio to display my skills - Digital Crew, a showcase of our group works.",
+  title: "Aalsi Works - Ahiran Ajoy Sahu",
+  description: "A personal portfolio to display my skills - Aalsi Works, a showcase of our agency.",
+  icons: {
+    icon: "/favicon.ico"
+  }
 };
 
 export default function RootLayout({

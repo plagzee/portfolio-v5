@@ -41,57 +41,132 @@ export default function HeroContent() {
   }, []);
 
   return (
-    <div className="absolute inset-0 z-10">
-      <div className="mx-auto flex h-full max-w-7xl items-center justify-center px-6">
-        <div className="mt-40 max-w-2xl text-center lg:mt-0 lg:text-left">
-          <p className="mb-4 text-sm uppercase tracking-[0.4em] text-zinc-500">
-            Full Stack Developer / Video Editor / Graphic Designer
+    <div className="absolute inset-0 z-10 flex items-center">
+      <div className="mx-auto flex w-full max-w-7xl justify-center px-6">
+
+        <div className="w-full max-w-3xl text-center">
+
+          <p
+            className="
+          mb-8
+          text-[11px]
+          uppercase
+          tracking-[0.45em]
+          text-zinc-500
+          sm:text-xs
+        "
+          >
+            FULL STACK DEVELOPER • VIDEO EDITOR • GRAPHIC DESIGNER
           </p>
 
           <h1
             ref={titleRef}
-            className="text-4xl font-black leading-none sm:text-5xl md:text-7xl lg:text-8xl"
+            className="
+          font-black
+          leading-[0.88]
+          tracking-tight
+          text-white
+          text-[clamp(3.3rem,11vw,8rem)]
+        "
           >
-            AHIRAN AJOY
+            AHIRAN
             <br />
-            SAHU
+            AJOY SAHU
           </h1>
 
           <p
             ref={subtitleRef}
-            className="mt-6 max-w-xl text-sm font-bold text-zinc-400 sm:text-base md:text-lg"
+            className="
+          mx-auto
+          mt-8
+          max-w-xl
+          text-base
+          leading-relaxed
+          text-zinc-400
+          md:text-lg
+        "
           >
-            Proficient in building{" "}
-            <span className="text-white [text-shadow:_0_0_10px_#fff,_0_0_20px_#fff,_0_0_40px_#0ff]">
+            Building
+            <span className="mx-2 font-semibold text-white">
               experiences
             </span>
-            ,
-            <br />
-            Not just Products.
+            that feel effortless—
+            not just products that work.
           </p>
 
           <div
             ref={buttonsRef}
-            className="mt-8 flex flex-col gap-4 sm:flex-row"
+            className="
+          mt-10
+          flex
+          flex-col
+          items-center
+          gap-4
+          sm:flex-row
+          sm:justify-center
+        "
           >
             <Link
               href="/projects"
-              className="rounded-xl bg-white px-6 py-3 text-center font-medium text-black transition-all duration-300 hover:scale-105"
+              className="
+            w-full
+            max-w-xs
+            rounded-2xl
+            bg-white
+            px-8
+            py-4
+            font-semibold
+            text-black
+            transition-all
+            duration-300
+            hover:-translate-y-1
+            hover:shadow-[0_15px_50px_rgba(255,255,255,0.25)]
+            sm:w-auto
+          "
             >
-              View Projects
+              View Projects →
             </Link>
 
             <Link
-              href="/aalsi#contact"
-              className="rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-center backdrop-blur transition-all duration-300 hover:bg-white/10"
+              href="/aalsi"
+              className="
+            w-full
+            max-w-xs
+            rounded-2xl
+            border
+            border-white/10
+            bg-white/5
+            px-8
+            py-4
+            font-medium
+            backdrop-blur-xl
+            transition-all
+            duration-300
+            hover:border-cyan-400/40
+            hover:bg-white/10
+            sm:w-auto
+          "
             >
-              Contact
+              Aalsi
             </Link>
           </div>
+
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-xs uppercase tracking-[0.3em] text-zinc-500">
+      <div
+        className="
+      absolute
+      bottom-10
+      left-1/2
+      -translate-x-1/2
+      animate-bounce
+      text-xs
+      uppercase
+      tracking-[0.35em]
+      text-zinc-500
+    "
+      >
         Scroll ↓
       </div>
     </div>

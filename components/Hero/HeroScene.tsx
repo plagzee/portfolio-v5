@@ -44,8 +44,8 @@ export default function HeroScene() {
     <div className="absolute inset-0">
       <Canvas
         camera={{
-          position: mobile ? [0, 0, 12] : [0, 0, 8],
-          fov: mobile ? 70 : 50,
+          position: mobile ? [0, 0, 15] : [0, 0, 8],
+          fov: mobile ? 55 : 50,
         }}
       >
         <Lighting mobile={mobile} />
